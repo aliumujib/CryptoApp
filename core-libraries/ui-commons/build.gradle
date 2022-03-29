@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: '../../dependencies.gradle'
+apply from: '../../libraries.gradle'
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation deps.support.fragment
+    implementation deps.support.fragment_ktx
+    implementation deps.support.app_compat
+    implementation deps.support.core_ktx
+    implementation deps.ui.material
+    implementation deps.ui.constraint_layout
+    implementation deps.flowBinding.appcompat
+    implementation deps.lifecycle.runtime_ktx
+
+    implementation deps.lifecycle.viewmodel_ktx
+    implementation deps.lifecycle.livedata_ktx
+    implementation deps.lifecycle.livedata_commons
+
+    implementation deps.dagger.hilt
+
+    kapt deps.dagger.hilt_compiler
+
+    testImplementation deps.unitTest.junit
+    testImplementation deps.unitTest.mockk
+    testImplementation deps.unitTest.coroutines
+    testImplementation deps.unitTest.androidx_core
+    testImplementation deps.unitTest.core_testing
+    testImplementation deps.unitTest.truth
+
+}

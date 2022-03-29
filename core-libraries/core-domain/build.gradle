@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+apply from: '../../dependencies.gradle'
+apply from: '../../libraries.gradle'
+
+dependencies {
+
+    implementation deps.kotlin.coroutines_android
+    implementation deps.jodatime
+    implementation deps.unitTest.coroutines
+
+    testImplementation deps.unitTest.coroutines
+    implementation project(':core-libraries:core-models')
+
+}

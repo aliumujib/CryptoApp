@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: '../../dependencies.gradle'
+apply from: '../../libraries.gradle'
+
+dependencies {
+
+    implementation project(':core-libraries:core-models')
+    implementation project(':core-libraries:core-domain')
+    implementation project(':core-libraries:core-remote')
+    implementation project(':core-libraries:core-cache')
+
+    implementation deps.dagger.hilt
+    implementation deps.kotlin.coroutines_android
+    implementation deps.jodatime
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+
+    kapt deps.dagger.hilt_compiler
+
+    testImplementation deps.unitTest.junit
+    testImplementation deps.unitTest.mockk
+    testImplementation deps.unitTest.coroutines
+    testImplementation deps.unitTest.androidx_core
+    testImplementation deps.unitTest.core_testing
+    testImplementation deps.unitTest.truth
+    testImplementation deps.konveyor
+    testImplementation project(':core-libraries:shared-test-utils')
+
+}

@@ -1,0 +1,12 @@
+rootProject.name = "ContactsApp"
+include ':app'
+include ':core-libraries:core-models'
+include ':core-libraries:core-data'
+include ':core-libraries:core-domain'
+include ':core-libraries:core-cache'
+include ':core-libraries:core-remote'
+include ':core-libraries:shared-test-utils'
+include ':features:wallet'
+include ':data-libraries:wallet-data-lib'
+include ':data-libraries:currency-data-lib'
+include ':core-libraries:ui-commons'
