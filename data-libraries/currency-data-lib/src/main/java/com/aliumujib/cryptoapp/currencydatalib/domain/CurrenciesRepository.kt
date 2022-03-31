@@ -8,5 +8,4 @@ interface CurrenciesRepository {
     fun streamCurrencies(): Flow<List<Currency>>
 
     fun streamBaseFiatCurrencyCode(): Flow<String>
-
 }

@@ -8,5 +8,4 @@ class FakeCurrenciesSource(private val currencies: List<Currency>) : CurrencyDat
     override fun fetch(): List<Currency> {
         return currencies
     }
-
 }

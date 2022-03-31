@@ -5,12 +5,12 @@ import com.aliumujib.cryptoapp.cache.rates.dao.ExchangeRatesDao
 import com.aliumujib.cryptoapp.cache.rates.models.ExchangeRateCacheModel
 import com.aliumujib.cryptoapp.coremodels.ExchangeRate
 import com.aliumujib.cryptoapp.ratedatalib.cache.mappers.ExchangeRateCacheMappers
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 interface RatesStore : Store<ExchangeRate> {
-   suspend fun fetchRateForPair(fromCurrency: String, toCurrency: String): ExchangeRate?
+    suspend fun fetchRateForPair(fromCurrency: String, toCurrency: String): ExchangeRate?
 }
 
 class RatesStoreImpl @Inject constructor(
@@ -41,5 +41,4 @@ class RatesStoreImpl @Inject constructor(
     override suspend fun isEmpty(): Boolean {
         return exchangeRatesDao.count() > 0
     }
-
 }

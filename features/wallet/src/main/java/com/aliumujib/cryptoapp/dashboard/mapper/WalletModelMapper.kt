@@ -1,8 +1,8 @@
 package com.aliumujib.cryptoapp.dashboard.mapper
 
-import com.aliumujib.cryptoapp.presentation.mapper.ModelMapper
 import com.aliumujib.cryptoapp.coremodels.Wallet
 import com.aliumujib.cryptoapp.dashboard.presentation.model.WalletUIModel
+import com.aliumujib.cryptoapp.presentation.mapper.ModelMapper
 import java.lang.UnsupportedOperationException
 import javax.inject.Inject
 

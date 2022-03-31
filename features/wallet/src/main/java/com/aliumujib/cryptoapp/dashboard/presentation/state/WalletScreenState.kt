@@ -2,7 +2,6 @@ package com.aliumujib.cryptoapp.dashboard.presentation.state
 
 import com.aliumujib.cryptoapp.presentation.base.ScreenState
 
-
 sealed class WalletScreenState(
     val walletHeaderState: HeaderViewState,
     val walletListState: WalletListState

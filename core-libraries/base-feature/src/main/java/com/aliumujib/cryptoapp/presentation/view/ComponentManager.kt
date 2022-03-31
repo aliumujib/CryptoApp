@@ -12,7 +12,6 @@ import com.aliumujib.cryptoapp.presentation.base.ViewResult
 import com.aliumujib.cryptoapp.presentation.base.ViewState
 import com.aliumujib.cryptoapp.presentation.statemachine.StateMachine
 
-
 @MainThread
 abstract class ComponentManager<S : ScreenState, out R : ViewResult>(
     private val stateMachine: StateMachine<S, R>

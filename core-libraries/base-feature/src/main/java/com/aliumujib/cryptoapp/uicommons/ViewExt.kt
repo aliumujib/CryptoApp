@@ -14,7 +14,7 @@ fun ViewGroup.inflate(layout: Int): View {
 
 fun ViewGroup.recursivelyApplyToChildren(
     ignore: List<Int> = emptyList(),
-    function: (child: View) -> Unit,
+    function: (child: View) -> Unit
 ) {
     this.children
         .filter {

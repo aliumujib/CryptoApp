@@ -16,7 +16,7 @@ class CurrencyDataSourceImpl @Inject constructor(
     private val moshi: Moshi,
     private val currencyRemoteMappers: CurrencyRemoteMappers,
     context: Context
-) : FileDataSource<List<Currency>>(context)  {
+) : FileDataSource<List<Currency>>(context) {
 
     override fun fetch(): List<Currency>? {
         val response = parseJson<CurrencyListResponse>(moshi, readFileContents("currencies-json.md"))

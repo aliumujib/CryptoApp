@@ -8,5 +8,4 @@ class FakeWalletSource(private val wallet: List<Wallet>) : WalletDataSource {
     override fun fetch(): List<Wallet> {
         return wallet
     }
-
 }

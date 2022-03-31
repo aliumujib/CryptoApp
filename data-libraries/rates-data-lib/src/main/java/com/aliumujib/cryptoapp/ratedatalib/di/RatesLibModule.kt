@@ -26,7 +26,6 @@ interface CurrencyDataModule {
     @Binds
     @Singleton
     fun bindRepository(repository: RatesRepositoryImpl): RatesRepository
-
 }
 
 @Module
@@ -48,5 +47,4 @@ object CurrencyDataProviders {
     ): RatesDataSource {
         return RatesDataSourceImpl(moshi, mappers, context)
     }
-
 }

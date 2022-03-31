@@ -1,9 +1,9 @@
 package com.aliumujib.cryptoapp.walletdata.cache.mappers
 
-import com.aliumujib.cryptoapp.currencydatalib.cache.mappers.CurrencyCacheMappers
 import com.aliumujib.cryptoapp.cache.mapper.CacheModelMapper
 import com.aliumujib.cryptoapp.cache.wallets.models.WalletWithCurrencyCacheModel
 import com.aliumujib.cryptoapp.coremodels.Wallet
+import com.aliumujib.cryptoapp.currencydatalib.cache.mappers.CurrencyCacheMappers
 import java.lang.UnsupportedOperationException
 import javax.inject.Inject
 
@@ -25,5 +25,4 @@ class WalletWithCurrencyCacheMappers @Inject constructor(private val currencyCac
     override fun mapToEntity(model: Wallet): WalletWithCurrencyCacheModel {
         throw UnsupportedOperationException()
     }
-
 }

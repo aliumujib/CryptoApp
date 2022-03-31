@@ -29,5 +29,4 @@ class FakeRatesStore : RatesStore {
     override suspend fun isEmpty(): Boolean {
         return rates.isEmpty()
     }
-
 }

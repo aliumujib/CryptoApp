@@ -3,10 +3,10 @@ package com.aliumujib.cryptoapp.dashboard.ui.components.wallet
 import android.content.res.Resources
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.aliumujib.cryptoapp.presentation.view.UIComponent
 import com.aliumujib.cryptoapp.dashboard.databinding.LayoutWalletListBinding
 import com.aliumujib.cryptoapp.dashboard.presentation.model.WalletUIModel
 import com.aliumujib.cryptoapp.dashboard.presentation.state.WalletListState
+import com.aliumujib.cryptoapp.presentation.view.UIComponent
 import com.aliumujib.cryptoapp.uicommons.dpToPx
 import io.cabriole.decorator.LinearMarginDecoration
 
@@ -44,5 +44,4 @@ class WalletListView(
             errorState.text = state.errorState.error
         }
     }
-
 }

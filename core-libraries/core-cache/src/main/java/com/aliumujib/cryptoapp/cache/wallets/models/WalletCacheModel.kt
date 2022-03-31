@@ -2,9 +2,7 @@ package com.aliumujib.cryptoapp.cache.wallets.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.aliumujib.cryptoapp.cache.currencies.models.CurrencyCacheModel
 
 @Entity(tableName = "wallets")
 data class WalletCacheModel(
@@ -15,4 +13,3 @@ data class WalletCacheModel(
     @ColumnInfo(name = "amount")
     val amount: Double
 )
-

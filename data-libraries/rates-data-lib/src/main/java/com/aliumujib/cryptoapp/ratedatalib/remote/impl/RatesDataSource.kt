@@ -30,7 +30,7 @@ class RatesDataSourceImpl @Inject constructor(
                 throw Exception("An error occurred while fetching currencies")
             }
         }
-        Log.d("Rates" , response.toString())
+        Log.d("Rates", response.toString())
 
         return null
     }

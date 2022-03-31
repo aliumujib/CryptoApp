@@ -5,5 +5,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WalletViewModel @Inject constructor(
-    stateMachine: WalletScreenStateMachine,
+    stateMachine: WalletScreenStateMachine
 ) : WalletComponentManager(stateMachine)

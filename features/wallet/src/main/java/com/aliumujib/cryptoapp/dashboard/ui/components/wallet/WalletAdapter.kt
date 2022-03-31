@@ -5,11 +5,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.aliumujib.cryptoapp.uicommons.inflate
 import com.aliumujib.cryptoapp.dashboard.R
 import com.aliumujib.cryptoapp.dashboard.databinding.LayoutWalletItemBinding
 import com.aliumujib.cryptoapp.dashboard.presentation.model.WalletUIModel
 import com.aliumujib.cryptoapp.uicommons.formatToCurrencyString
+import com.aliumujib.cryptoapp.uicommons.inflate
 import com.aliumujib.cryptoapp.uicommons.recursivelyApplyToChildren
 
 typealias WalletClickListener = (WalletUIModel) -> Unit
@@ -31,7 +31,7 @@ class WalletAdapter(private val onClick: WalletClickListener) :
             binding.run {
                 imageView.load(wallet.currency?.colorfulImageUrl.orEmpty())
                 coinName.text = wallet.currency?.name
-                cryptoAmount.text = "${wallet.coinAmount}${wallet.coinId}"
+                cryptoAmount.text = root.context.getString(R.string.coin_amount, wallet.coinAmount, wallet.coinId)
                 wallet.fiatCurrencyCode?.let {
                     fiatAmount.text = wallet.fiatAmount.formatToCurrencyString(it)
                 }

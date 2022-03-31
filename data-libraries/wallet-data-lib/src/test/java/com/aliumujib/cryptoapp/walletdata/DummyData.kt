@@ -34,7 +34,7 @@ object DummyData {
         )
     }
 
-    private fun generateFakeWallet(coinId: String): Wallet{
+    private fun generateFakeWallet(coinId: String): Wallet {
         return Wallet(coinId, generateFakeCurrency(coinId), Random.nextDouble())
     }
 
@@ -46,5 +46,4 @@ object DummyData {
             generateFakeWallet("BNB")
         )
     }
-
 }

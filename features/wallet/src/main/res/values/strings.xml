@@ -3,4 +3,5 @@
     <string name="no_wallets_to_display">No wallets to display</string>
     <string name="an_error_occurred">An error occurred</string>
     <string name="empty_amount">--</string>
+    <string name="coin_amount">%1$s %2$s</string>
 </resources>

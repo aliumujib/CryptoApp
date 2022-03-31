@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.ratedatalib.data
 
-
 import com.aliumujib.cryptoapp.coremodels.ExchangeRate
 import com.aliumujib.cryptoapp.ratedatalib.DummyData
 import com.aliumujib.cryptoapp.ratedatalib.FakeRatesSource
@@ -15,7 +14,7 @@ import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class RatesRepositoryTest: CoroutineTest() {
+class RatesRepositoryTest : CoroutineTest() {
 
     private lateinit var sut: RatesRepository
 
@@ -45,5 +44,4 @@ class RatesRepositoryTest: CoroutineTest() {
         val actual = sut.fetchRateForPair("BSSUSD", "USD")
         assertThat(actual).isEqualTo(expected)
     }
-
 }

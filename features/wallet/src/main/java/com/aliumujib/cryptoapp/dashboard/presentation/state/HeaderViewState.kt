@@ -55,7 +55,8 @@ sealed class HeaderViewState(
     )
 
     data class Loaded(
-        val amount: Double, val baseFiatCurrency: String
+        val amount: Double,
+        val baseFiatCurrency: String
     ) : HeaderViewState(
         result = HeaderResultState(
             totalBalance = amount,

@@ -1,7 +1,7 @@
 package com.aliumujib.cryptoapp.dashboard.presentation.state
 
-import com.aliumujib.cryptoapp.presentation.base.ViewState
 import com.aliumujib.cryptoapp.dashboard.presentation.model.WalletUIModel
+import com.aliumujib.cryptoapp.presentation.base.ViewState
 
 data class WalletResultState(
     val data: List<WalletUIModel>,

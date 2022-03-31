@@ -8,5 +8,4 @@ class FakeRatesSource(private val rates: List<ExchangeRate>) : RatesDataSource {
     override fun fetch(): List<ExchangeRate> {
         return rates
     }
-
 }

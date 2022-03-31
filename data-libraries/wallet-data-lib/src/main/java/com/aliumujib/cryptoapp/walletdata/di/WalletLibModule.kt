@@ -27,7 +27,6 @@ interface WalletDataModule {
     @Binds
     @Singleton
     fun bindRepository(repository: WalletsRepositoryImpl): WalletsRepository
-
 }
 
 @Module
@@ -53,5 +52,4 @@ object WalletDataProviders {
     ): WalletDataSource {
         return WalletDataSourceImpl(moshi, walletRemoteMappers, context)
     }
-
 }

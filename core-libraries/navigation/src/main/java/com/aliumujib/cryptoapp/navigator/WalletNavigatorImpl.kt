@@ -10,5 +10,4 @@ class WalletNavigatorImpl @Inject constructor(private val navController: NavCont
     override fun openWalletDetails(coinId: String) {
         navController.navigate("crypto://.*/wallet-details?coinId=$coinId".toUri())
     }
-
 }

@@ -1,15 +1,14 @@
 package com.aliumujib.cryptoapp.walletdata.cache.impl
 
-import android.util.Log
 import com.aliumujib.cryptoapp.cache.contract.Store
 import com.aliumujib.cryptoapp.cache.wallets.dao.WalletsDao
 import com.aliumujib.cryptoapp.cache.wallets.models.WalletWithCurrencyCacheModel
 import com.aliumujib.cryptoapp.coremodels.Wallet
 import com.aliumujib.cryptoapp.walletdata.cache.mappers.WalletCacheMappers
 import com.aliumujib.cryptoapp.walletdata.cache.mappers.WalletWithCurrencyCacheMappers
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 typealias WalletStore = Store<Wallet>
 
@@ -36,5 +35,4 @@ class WalletStoreImpl @Inject constructor(
             walletWithCurrencyCacheMappers.mapToModel(it)
         }
     }
-
 }

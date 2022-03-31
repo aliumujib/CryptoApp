@@ -1,10 +1,10 @@
 package com.aliumujib.cryptoapp.dashboard.presentation
 
+import com.aliumujib.cryptoapp.dashboard.presentation.state.WalletScreenState
 import com.aliumujib.cryptoapp.presentation.base.IntentProcessor
 import com.aliumujib.cryptoapp.presentation.base.StateReducer
 import com.aliumujib.cryptoapp.presentation.statemachine.StateMachine
 import com.aliumujib.cryptoapp.presentation.view.ComponentManager
-import com.aliumujib.cryptoapp.dashboard.presentation.state.WalletScreenState
 
 typealias BaseFiatCurrency = String
 

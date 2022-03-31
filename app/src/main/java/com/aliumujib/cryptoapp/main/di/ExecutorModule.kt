@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.main.di
 
-
 import com.aliumujib.cryptoapp.coredomain.utils.PostExecutionThread
 import com.aliumujib.cryptoapp.data.flow.PostExecutionThreadImpl
 import dagger.Binds

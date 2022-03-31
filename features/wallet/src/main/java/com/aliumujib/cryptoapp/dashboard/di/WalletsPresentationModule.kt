@@ -23,5 +23,4 @@ interface WalletsPresentationModule {
 
     @Binds
     fun bindsStateMachine(intentProcessor: WalletScreenStateMachine): WalletStateMachine
-
 }

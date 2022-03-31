@@ -1,6 +1,7 @@
 package com.aliumujib.cryptoapp.currencydatalib.di
 
 import android.content.Context
+import com.aliumujib.cryptoapp.cache.currencies.dao.CurrenciesDao
 import com.aliumujib.cryptoapp.currencydatalib.cache.impl.CurrencyStore
 import com.aliumujib.cryptoapp.currencydatalib.cache.impl.CurrencyStoreImpl
 import com.aliumujib.cryptoapp.currencydatalib.cache.mappers.CurrencyCacheMappers
@@ -9,7 +10,6 @@ import com.aliumujib.cryptoapp.currencydatalib.domain.CurrenciesRepository
 import com.aliumujib.cryptoapp.currencydatalib.remote.impl.CurrencyDataSource
 import com.aliumujib.cryptoapp.currencydatalib.remote.impl.CurrencyDataSourceImpl
 import com.aliumujib.cryptoapp.currencydatalib.remote.mappers.CurrencyRemoteMappers
-import com.aliumujib.cryptoapp.cache.currencies.dao.CurrenciesDao
 import com.squareup.moshi.Moshi
 import dagger.Binds
 import dagger.Module
@@ -26,7 +26,6 @@ interface CurrencyDataModule {
     @Binds
     @Singleton
     fun bindRepository(repository: CurrenciesRepositoryImpl): CurrenciesRepository
-
 }
 
 @Module
@@ -48,5 +47,4 @@ object CurrencyDataProviders {
     ): CurrencyDataSource {
         return CurrencyDataSourceImpl(moshi, mappers, context)
     }
-
 }

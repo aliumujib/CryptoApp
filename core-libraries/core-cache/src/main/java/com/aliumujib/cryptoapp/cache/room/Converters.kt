@@ -31,5 +31,4 @@ class Converters {
     fun fromRateCacheModelList(value: List<RateCacheModel>?): String? {
         return if (value == null) null else gson.toJson(value)
     }
-
 }

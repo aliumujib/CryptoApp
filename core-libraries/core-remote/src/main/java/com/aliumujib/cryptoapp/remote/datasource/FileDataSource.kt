@@ -2,7 +2,6 @@ package com.aliumujib.cryptoapp.remote.datasource
 
 import android.content.Context
 import com.squareup.moshi.Moshi
-import kotlinx.coroutines.flow.Flow
 import java.io.InputStream
 import java.nio.charset.Charset
 
@@ -13,7 +12,6 @@ inline fun <reified T> parseJson(moshi: Moshi, json: String): T? {
 interface DataSource<T> {
 
     fun fetch(): T?
-
 }
 
 abstract class FileDataSource<T> constructor(private val context: Context) : DataSource<T> {
@@ -26,5 +24,4 @@ abstract class FileDataSource<T> constructor(private val context: Context) : Dat
         inputStream.close()
         return String(buffer, Charset.defaultCharset())
     }
-
 }

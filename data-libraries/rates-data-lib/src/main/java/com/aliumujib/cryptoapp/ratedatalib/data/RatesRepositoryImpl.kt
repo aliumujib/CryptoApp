@@ -5,10 +5,9 @@ import com.aliumujib.cryptoapp.data.flow.networkBoundResource
 import com.aliumujib.cryptoapp.ratedatalib.cache.impl.RatesStore
 import com.aliumujib.cryptoapp.ratedatalib.domain.RatesRepository
 import com.aliumujib.cryptoapp.ratedatalib.remote.impl.RatesDataSource
+import javax.inject.Inject
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
-
 
 class RatesRepositoryImpl @Inject constructor(
     private val ratesStore: RatesStore,
@@ -32,5 +31,4 @@ class RatesRepositoryImpl @Inject constructor(
             throw it
         }).first()
     }
-
 }

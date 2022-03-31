@@ -37,7 +37,7 @@ class CurrencyCacheMappers @Inject constructor() : CacheModelMapper<Currency, Cu
     }
 
     override fun mapToEntity(model: Currency): CurrencyCacheModel {
-        return with(model){
+        return with(model) {
             CurrencyCacheModel(
                 blockchainSymbol,
                 code,
@@ -64,5 +64,4 @@ class CurrencyCacheMappers @Inject constructor() : CacheModelMapper<Currency, Cu
             )
         }
     }
-
 }

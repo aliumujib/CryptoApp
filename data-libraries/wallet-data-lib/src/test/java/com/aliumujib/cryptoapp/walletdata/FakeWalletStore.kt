@@ -20,5 +20,4 @@ class FakeWalletStore : WalletStore {
     override suspend fun isEmpty(): Boolean {
         return wallet.isEmpty()
     }
-
 }

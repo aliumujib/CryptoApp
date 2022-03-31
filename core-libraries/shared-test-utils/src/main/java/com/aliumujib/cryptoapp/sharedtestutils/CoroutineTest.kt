@@ -15,8 +15,8 @@ abstract class CoroutineTest {
     @JvmField
     val rule = InstantTaskExecutorRule()
 
-    protected val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
-    protected val testCoroutineScope = TestCoroutineScope(testDispatcher + Job())
+    private val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+    private val testCoroutineScope = TestCoroutineScope(testDispatcher + Job())
 
     @After
     fun cleanupCoroutines() {

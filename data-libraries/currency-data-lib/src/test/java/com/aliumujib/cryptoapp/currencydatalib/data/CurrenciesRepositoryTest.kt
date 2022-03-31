@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.currencydatalib.data
 
-
 import app.cash.turbine.test
 import com.aliumujib.cryptoapp.coremodels.Currency
 import com.aliumujib.cryptoapp.currencydatalib.DummyData
@@ -17,7 +16,7 @@ import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class CurrenciesRepositoryTest: CoroutineTest() {
+class CurrenciesRepositoryTest : CoroutineTest() {
 
     private lateinit var sut: CurrenciesRepository
 
@@ -50,5 +49,4 @@ class CurrenciesRepositoryTest: CoroutineTest() {
             cancelAndIgnoreRemainingEvents()
         }
     }
-
 }

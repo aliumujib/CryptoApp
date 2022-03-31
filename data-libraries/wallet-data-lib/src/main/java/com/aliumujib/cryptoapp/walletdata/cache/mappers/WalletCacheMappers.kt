@@ -26,5 +26,4 @@ class WalletCacheMappers @Inject constructor() :
             )
         }
     }
-
 }

@@ -6,7 +6,6 @@ import com.aliumujib.cryptoapp.presentation.base.Subscriber
 import com.aliumujib.cryptoapp.presentation.base.ViewIntent
 import com.aliumujib.cryptoapp.presentation.base.ViewState
 
-
 /**
  * Represents a basic UI component that can be part of a screen
  */

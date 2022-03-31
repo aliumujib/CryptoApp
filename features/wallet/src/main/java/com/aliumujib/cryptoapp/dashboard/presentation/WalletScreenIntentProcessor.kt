@@ -1,18 +1,18 @@
 package com.aliumujib.cryptoapp.dashboard.presentation
 
+import com.aliumujib.cryptoapp.coremodels.Wallet
+import com.aliumujib.cryptoapp.dashboard.domain.FetchExchangeRates
+import com.aliumujib.cryptoapp.dashboard.domain.StreamBaseFiat
+import com.aliumujib.cryptoapp.dashboard.domain.StreamWallets
 import com.aliumujib.cryptoapp.presentation.base.InvalidViewIntentException
 import com.aliumujib.cryptoapp.presentation.base.ViewIntent
-import com.aliumujib.cryptoapp.coremodels.Wallet
-import com.aliumujib.cryptoapp.dashboard.domain.StreamBaseFiat
-import com.aliumujib.cryptoapp.dashboard.domain.FetchExchangeRates
-import com.aliumujib.cryptoapp.dashboard.domain.StreamWallets
 import com.aliumujib.cryptoapp.uicommons.orEmpty
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
-import javax.inject.Inject
 
 class WalletScreenIntentProcessor @Inject constructor(
     private val streamWallets: StreamWallets,
@@ -53,5 +53,4 @@ class WalletScreenIntentProcessor @Inject constructor(
             exchangeRates
         )
     }
-
 }

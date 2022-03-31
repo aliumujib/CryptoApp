@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.aliumujib.cryptoapp.uicommons.viewBinding
 import com.aliumujib.cryptoapp.dashboard.R
 import com.aliumujib.cryptoapp.dashboard.databinding.WalletFragmentBinding
 import com.aliumujib.cryptoapp.dashboard.navigation.WalletNavigator
@@ -12,6 +11,7 @@ import com.aliumujib.cryptoapp.dashboard.presentation.WalletViewModel
 import com.aliumujib.cryptoapp.dashboard.presentation.state.WalletScreenState
 import com.aliumujib.cryptoapp.dashboard.ui.components.HeaderView
 import com.aliumujib.cryptoapp.dashboard.ui.components.wallet.WalletListView
+import com.aliumujib.cryptoapp.uicommons.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -48,5 +48,4 @@ class WalletFragment : Fragment(R.layout.wallet_fragment) {
             disposeAll(viewLifecycleOwner)
         }
     }
-
 }

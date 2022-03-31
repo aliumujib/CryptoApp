@@ -1,20 +1,12 @@
 package com.aliumujib.cryptoapp.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.lifecycleScope
+import androidx.appcompat.app.AppCompatActivity
 import com.aliumujib.cryptoapp.currencydatalib.domain.CurrenciesRepository
 import com.aliumujib.cryptoapp.databinding.ActivityMainBinding
 import com.aliumujib.cryptoapp.ratedatalib.domain.RatesRepository
 import com.aliumujib.cryptoapp.walletdata.domain.WalletsRepository
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flatMapConcat
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -46,6 +38,5 @@ class MainActivity : AppCompatActivity() {
 //            }
 //            .flowOn(Dispatchers.IO)
 //            .launchIn(lifecycleScope)
-
     }
 }

@@ -1,8 +1,7 @@
 package com.aliumujib.cryptoapp.dashboard.presentation
 
-
-import com.aliumujib.cryptoapp.presentation.statemachine.RenderStrategy
 import com.aliumujib.cryptoapp.dashboard.presentation.state.WalletScreenState
+import com.aliumujib.cryptoapp.presentation.statemachine.RenderStrategy
 import javax.inject.Inject
 
 class WalletScreenStateMachine @Inject constructor(

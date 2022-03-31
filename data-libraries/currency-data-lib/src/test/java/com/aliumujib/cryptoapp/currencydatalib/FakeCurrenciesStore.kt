@@ -20,5 +20,4 @@ class FakeCurrenciesStore : CurrencyStore {
     override suspend fun isEmpty(): Boolean {
         return currencies.isEmpty()
     }
-
 }

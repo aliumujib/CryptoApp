@@ -11,6 +11,7 @@ dependencies {
 
     implementation deps.gson
     implementation project(':core-libraries:core-models')
+    implementation project(':core-libraries:core-domain')
 
     implementation deps.unitTest.coroutines
     implementation deps.unitTest.androidx_core

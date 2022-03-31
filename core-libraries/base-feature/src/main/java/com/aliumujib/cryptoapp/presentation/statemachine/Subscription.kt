@@ -6,7 +6,6 @@ import com.aliumujib.cryptoapp.presentation.base.StateTransform
 import com.aliumujib.cryptoapp.presentation.base.Subscriber
 import com.aliumujib.cryptoapp.presentation.base.ViewState
 
-
 internal class Subscription<S : ScreenState, V : ViewState>(
     private var subscriber: Subscriber<V>?,
     private val transform: StateTransform<S, V>

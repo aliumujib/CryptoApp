@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.dashboard.domain
 
-import android.util.Log
 import com.aliumujib.cryptoapp.coredomain.utils.NoParamsException
 import com.aliumujib.cryptoapp.coredomain.utils.PostExecutionThread
 import com.aliumujib.cryptoapp.coredomain.utils.SuspendUseCase
@@ -33,12 +32,12 @@ class FetchExchangeRates @Inject constructor(
         val result = params.baseCoinIds.fold(mutableMapOf<String, Double>()) { map, coinId ->
             map.apply {
                 val exchangeRate = ratesDataRepository.fetchRateForPair(coinId, params.fiatCurrencyCode)
-                val averageRate = exchangeRate?.rates?.map { rate -> rate.rate }?.average().orZero()
-                put(coinId, averageRate)
+                val averageRate = exchangeRate?.rates?.map { rate -> rate.rate }?.average()
+                averageRate?.let {
+                    put(coinId, averageRate)
+                }
             }
         }
         return result
     }
-
-
 }

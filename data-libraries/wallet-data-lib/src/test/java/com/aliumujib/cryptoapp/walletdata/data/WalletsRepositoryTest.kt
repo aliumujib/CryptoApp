@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.walletdata.data
 
-
 import app.cash.turbine.test
 import com.aliumujib.cryptoapp.coremodels.Wallet
 import com.aliumujib.cryptoapp.remote.datasource.DataSource
@@ -16,7 +15,7 @@ import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class WalletsRepositoryTest: CoroutineTest() {
+class WalletsRepositoryTest : CoroutineTest() {
 
     private lateinit var sut: WalletsRepository
 
@@ -42,5 +41,4 @@ class WalletsRepositoryTest: CoroutineTest() {
             cancelAndIgnoreRemainingEvents()
         }
     }
-
 }

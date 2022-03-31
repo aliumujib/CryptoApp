@@ -21,5 +21,4 @@ class WalletDetailsFragment : Fragment(R.layout.fragment_wallet_details) {
         super.onViewCreated(view, savedInstanceState)
         binding.walletDetails.text = navArgs.coinId
     }
-
 }

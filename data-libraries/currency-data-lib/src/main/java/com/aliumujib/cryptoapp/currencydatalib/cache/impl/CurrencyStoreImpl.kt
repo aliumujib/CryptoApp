@@ -1,13 +1,13 @@
 package com.aliumujib.cryptoapp.currencydatalib.cache.impl
 
-import com.aliumujib.cryptoapp.currencydatalib.cache.mappers.CurrencyCacheMappers
 import com.aliumujib.cryptoapp.cache.contract.Store
 import com.aliumujib.cryptoapp.cache.currencies.dao.CurrenciesDao
 import com.aliumujib.cryptoapp.cache.currencies.models.CurrencyCacheModel
 import com.aliumujib.cryptoapp.coremodels.Currency
+import com.aliumujib.cryptoapp.currencydatalib.cache.mappers.CurrencyCacheMappers
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 typealias CurrencyStore = Store<Currency>
 
@@ -33,5 +33,4 @@ class CurrencyStoreImpl @Inject constructor(
             currencyMappers.mapToModel(it)
         }
     }
-
 }

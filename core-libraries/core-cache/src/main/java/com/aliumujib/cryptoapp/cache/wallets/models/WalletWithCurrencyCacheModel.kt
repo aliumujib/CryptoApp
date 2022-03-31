@@ -9,4 +9,3 @@ data class WalletWithCurrencyCacheModel(
     @Relation(parentColumn = "currency", entityColumn = "coinId", entity = CurrencyCacheModel::class)
     val currency: CurrencyCacheModel
 )
-

@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.walletdata.remote.mappers
 
-
 import com.aliumujib.cryptoapp.coremodels.Wallet
 import com.aliumujib.cryptoapp.remote.mapper.RemoteModelMapper
 import com.aliumujib.cryptoapp.walletdata.remote.model.WalletResponse
@@ -17,5 +16,4 @@ class WalletRemoteMappers @Inject constructor() : RemoteModelMapper<Wallet, Wall
             )
         }
     }
-
 }

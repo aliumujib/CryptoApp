@@ -41,5 +41,4 @@ object DummyData {
             generateFakeCurrency("BNB")
         )
     }
-
 }
