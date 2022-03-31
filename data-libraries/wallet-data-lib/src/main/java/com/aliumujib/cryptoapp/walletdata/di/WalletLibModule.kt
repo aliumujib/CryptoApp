@@ -5,6 +5,7 @@ import com.aliumujib.cryptoapp.cache.wallets.dao.WalletsDao
 import com.aliumujib.cryptoapp.walletdata.cache.impl.WalletStore
 import com.aliumujib.cryptoapp.walletdata.cache.impl.WalletStoreImpl
 import com.aliumujib.cryptoapp.walletdata.cache.mappers.WalletCacheMappers
+import com.aliumujib.cryptoapp.walletdata.cache.mappers.WalletWithCurrencyCacheMappers
 import com.aliumujib.cryptoapp.walletdata.data.WalletsRepositoryImpl
 import com.aliumujib.cryptoapp.walletdata.domain.WalletsRepository
 import com.aliumujib.cryptoapp.walletdata.remote.WalletDataSource
@@ -35,8 +36,12 @@ object WalletDataProviders {
 
     @Provides
     @Singleton
-    fun providesStore(walletsDao: WalletsDao, walletMappers: WalletCacheMappers): WalletStore {
-        return WalletStoreImpl(walletsDao, walletMappers)
+    fun providesStore(
+        walletsDao: WalletsDao,
+        walletWithCurrencyCacheMappers: WalletWithCurrencyCacheMappers,
+        walletMappers: WalletCacheMappers
+    ): WalletStore {
+        return WalletStoreImpl(walletsDao, walletMappers, walletWithCurrencyCacheMappers)
     }
 
     @Provides

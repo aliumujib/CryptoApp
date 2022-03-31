@@ -21,14 +21,14 @@ class Converters {
     }
 
     @TypeConverter
-    fun toRateCacheModel(data: String?): RateCacheModel? {
-        val addressType = object : TypeToken<RateCacheModel>() {
+    fun toRateCacheModelList(data: String?): List<RateCacheModel>? {
+        val addressType = object : TypeToken<List<RateCacheModel>>() {
         }.type
         return gson.fromJson(data, addressType)
     }
 
     @TypeConverter
-    fun fromRateCacheModel(value: RateCacheModel?): String? {
+    fun fromRateCacheModelList(value: List<RateCacheModel>?): String? {
         return if (value == null) null else gson.toJson(value)
     }
 

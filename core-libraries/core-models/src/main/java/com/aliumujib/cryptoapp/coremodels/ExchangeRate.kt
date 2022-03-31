@@ -1,13 +1,13 @@
 package com.aliumujib.cryptoapp.coremodels
 
 data class ExchangeRate(
-    val from_currency: String,
-    val rate: Rate,
-    val time_stamp: Int,
-    val to_currency: String
+    val fromCurrency: String,
+    val rates: List<Rate>,
+    val timeStamp: Long,
+    val toCurrency: String
 )
 
 data class Rate(
-    val amount: String,
-    val rate: String
+    val amount: Double,
+    val rate: Double
 )

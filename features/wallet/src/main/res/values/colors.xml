@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="neutrals_004">#000000</color>
+    <color name="neutrals_003">#737A91</color>
+    <color name="color_primary_text">@color/neutrals_004</color>
+    <color name="color_secondary_text">@color/neutrals_003</color>
+    <color name="color_text_disabled">#BFBFBF</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>

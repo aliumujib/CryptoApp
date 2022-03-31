@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_wallets_to_display">No wallets to display</string>
+    <string name="an_error_occurred">An error occurred</string>
+    <string name="empty_amount">--</string>
+</resources>

@@ -3,10 +3,10 @@ apply from: "$project.rootDir/clean-up.gradle"
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.21"
+    ext.kotlin_version = "1.6.0"
     ext.spotless_version = '5.12.4'
-    ext.navigation_version = '2.3.3'
-    ext.hilt_version = "2.35"
+    ext.navigation_version = '2.4.0'
+    ext.hilt_version = "2.38"
 
     repositories {
         google()

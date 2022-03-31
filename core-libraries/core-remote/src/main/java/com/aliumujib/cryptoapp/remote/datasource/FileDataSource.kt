@@ -10,7 +10,13 @@ inline fun <reified T> parseJson(moshi: Moshi, json: String): T? {
     return moshi.adapter(T::class.java).fromJson(json)
 }
 
-abstract class FileDataSource<T>  constructor(private val context: Context) {
+interface DataSource<T> {
+
+    fun fetch(): T?
+
+}
+
+abstract class FileDataSource<T> constructor(private val context: Context) : DataSource<T> {
 
     protected fun readFileContents(fileName: String): String {
         val inputStream: InputStream = context.assets.open(fileName)
@@ -21,5 +27,4 @@ abstract class FileDataSource<T>  constructor(private val context: Context) {
         return String(buffer, Charset.defaultCharset())
     }
 
-    abstract fun fetch() : T?
 }

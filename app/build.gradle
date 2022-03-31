@@ -69,12 +69,18 @@ android {
     }
 }
 
+hilt {
+    enableAggregatingTask = true
+}
+
 dependencies {
 
     implementation deps.support.fragment
     implementation deps.support.fragment_ktx
+
     implementation deps.support.navigation_fragment
     implementation deps.support.navigation_ui
+
     implementation deps.support.app_compat
     implementation deps.support.core_ktx
     implementation deps.ui.material
@@ -85,12 +91,17 @@ dependencies {
 
     implementation project(':data-libraries:currency-data-lib')
     implementation project(':data-libraries:wallet-data-lib')
+    implementation project(':data-libraries:rates-data-lib')
+
     implementation project(':core-libraries:core-cache')
     implementation project(':core-libraries:core-data')
     implementation project(':core-libraries:core-domain')
     implementation project(':core-libraries:core-remote')
     implementation project(':core-libraries:core-models')
+    implementation project(':core-libraries:navigation')
 
+    implementation project(':features:wallet')
+    implementation project(':features:wallet-details')
 
     implementation deps.room.runtime
     implementation deps.room.ktx

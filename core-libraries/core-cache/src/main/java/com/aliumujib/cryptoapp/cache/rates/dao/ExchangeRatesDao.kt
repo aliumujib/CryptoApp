@@ -14,7 +14,13 @@ abstract class ExchangeRatesDao {
     abstract fun saveExchanges(accounts: List<ExchangeRateCacheModel>)
 
     @Query("SELECT * FROM rates")
-    abstract fun streamExchanges(): Flow<ExchangeRateCacheModel>
+    abstract fun streamExchangeRates(): Flow<List<ExchangeRateCacheModel>>
+
+    @Query("SELECT * FROM rates WHERE fromCurrency=:from AND toCurrency=:to")
+    abstract suspend fun fetchExchangeRateForPair(
+        from: String,
+        to: String
+    ): ExchangeRateCacheModel?
 
     @Query("SELECT COUNT(id) FROM rates")
     abstract suspend fun count(): Int

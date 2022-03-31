@@ -27,7 +27,9 @@ dependencies {
     testImplementation deps.unitTest.androidx_core
     testImplementation deps.unitTest.core_testing
     testImplementation deps.unitTest.truth
+    testImplementation deps.unitTest.turbine
     testImplementation deps.konveyor
+
     testImplementation project(':core-libraries:shared-test-utils')
 
     androidTestImplementation deps.konveyor
