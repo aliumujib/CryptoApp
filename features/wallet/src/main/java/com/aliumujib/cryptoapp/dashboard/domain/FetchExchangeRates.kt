@@ -5,7 +5,6 @@ import com.aliumujib.cryptoapp.coredomain.utils.PostExecutionThread
 import com.aliumujib.cryptoapp.coredomain.utils.SuspendUseCase
 import com.aliumujib.cryptoapp.dashboard.presentation.ExchangeRates
 import com.aliumujib.cryptoapp.ratedatalib.domain.RatesRepository
-import com.aliumujib.cryptoapp.uicommons.orZero
 import javax.inject.Inject
 
 class FetchExchangeRates @Inject constructor(

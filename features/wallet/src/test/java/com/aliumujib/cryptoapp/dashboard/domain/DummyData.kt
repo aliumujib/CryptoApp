@@ -21,7 +21,7 @@ object DummyData {
         )
     }
 
-    fun generateFakeExchangeRateList(pairList : List<Triple<String, String, Double>>): List<ExchangeRate> {
+    fun generateFakeExchangeRateList(pairList: List<Triple<String, String, Double>>): List<ExchangeRate> {
         return pairList.map {
             generateExchangeRate(it.first, it.second, it.third)
         }

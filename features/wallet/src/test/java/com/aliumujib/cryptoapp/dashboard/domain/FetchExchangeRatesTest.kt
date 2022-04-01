@@ -45,7 +45,6 @@ class FetchExchangeRatesTest : CoroutineTest() {
             assertThat(expected).isEqualTo(actual)
         }
 
-
     @Test
     fun check_that_fetchExchangeRates_returns_empty_for_invalid_coin_pair() =
         coroutineScopedTest {
@@ -55,6 +54,4 @@ class FetchExchangeRatesTest : CoroutineTest() {
                 sut.invoke(FetchExchangeRates.Params.make(listOf("BNAS", "DSSD", "ADDE"), "USD"))
             assertThat(expected).isEqualTo(actual)
         }
-
-
 }
