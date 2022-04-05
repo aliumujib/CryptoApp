@@ -6,10 +6,6 @@ import com.aliumujib.cryptoapp.presentation.base.StateReducer
 import com.aliumujib.cryptoapp.presentation.statemachine.StateMachine
 import com.aliumujib.cryptoapp.presentation.view.ComponentManager
 
-typealias BaseFiatCurrency = String
-
-typealias ExchangeRates = Map<String, Double>
-
 typealias WalletIntentProcessor =
     @JvmSuppressWildcards IntentProcessor<WalletScreenResult>
 

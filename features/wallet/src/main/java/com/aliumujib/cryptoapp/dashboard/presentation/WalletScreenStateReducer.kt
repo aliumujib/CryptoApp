@@ -17,12 +17,7 @@ class WalletScreenStateReducer @Inject constructor(
         result: WalletScreenResult
     ): WalletScreenState = when (result) {
         is WalletScreenResult.LoadWalletsResult.LoadedWalletsResult -> {
-            val walletModels = result.wallets.map {
-                val exchangeRate = result.exchangeRates[it.currencyCode].orZero()
-                val fiatAmount = it.amount * exchangeRate
-                walletModelMapper.mapToModel(it)
-                    .copy(fiatAmount = fiatAmount, fiatCurrencyCode = result.baseFiatCurrency)
-            }
+            val walletModels = walletModelMapper.mapToModel(result.data)
 
             val totalWalletBalance = walletModels.sumOf { it.fiatAmount }
 
@@ -31,7 +26,7 @@ class WalletScreenStateReducer @Inject constructor(
             )
 
             val walletHeaderState = HeaderViewState.Loaded(
-                amount = totalWalletBalance, baseFiatCurrency = result.baseFiatCurrency
+                amount = totalWalletBalance, baseFiatCurrency = result.data.baseFiatCurrency
             )
 
             WalletScreenState.Loaded(

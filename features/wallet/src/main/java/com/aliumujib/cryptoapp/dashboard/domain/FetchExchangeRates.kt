@@ -3,7 +3,7 @@ package com.aliumujib.cryptoapp.dashboard.domain
 import com.aliumujib.cryptoapp.coredomain.utils.NoParamsException
 import com.aliumujib.cryptoapp.coredomain.utils.PostExecutionThread
 import com.aliumujib.cryptoapp.coredomain.utils.SuspendUseCase
-import com.aliumujib.cryptoapp.dashboard.presentation.ExchangeRates
+import com.aliumujib.cryptoapp.coremodels.ExchangeRates
 import com.aliumujib.cryptoapp.ratedatalib.domain.RatesRepository
 import javax.inject.Inject
 
