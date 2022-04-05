@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.dashboard.presentation
 
-import com.aliumujib.cryptoapp.coremodels.Wallet
 import com.aliumujib.cryptoapp.coremodels.WalletsWithExchangeRates
 import com.aliumujib.cryptoapp.presentation.base.ViewResult
 

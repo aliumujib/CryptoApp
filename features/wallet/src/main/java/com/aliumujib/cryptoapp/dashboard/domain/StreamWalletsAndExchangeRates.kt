@@ -5,10 +5,10 @@ import com.aliumujib.cryptoapp.coredomain.utils.PostExecutionThread
 import com.aliumujib.cryptoapp.coremodels.BaseFiatCurrency
 import com.aliumujib.cryptoapp.coremodels.Wallet
 import com.aliumujib.cryptoapp.coremodels.WalletsWithExchangeRates
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 class StreamWalletsAndExchangeRates @Inject constructor(
     private val streamWallets: StreamWallets,

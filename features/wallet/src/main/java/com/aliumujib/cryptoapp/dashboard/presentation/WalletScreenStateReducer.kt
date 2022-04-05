@@ -5,7 +5,6 @@ import com.aliumujib.cryptoapp.dashboard.presentation.state.HeaderViewState
 import com.aliumujib.cryptoapp.dashboard.presentation.state.WalletListState
 import com.aliumujib.cryptoapp.dashboard.presentation.state.WalletScreenState
 import com.aliumujib.cryptoapp.uicommons.errorMessage
-import com.aliumujib.cryptoapp.uicommons.orZero
 import javax.inject.Inject
 
 class WalletScreenStateReducer @Inject constructor(
