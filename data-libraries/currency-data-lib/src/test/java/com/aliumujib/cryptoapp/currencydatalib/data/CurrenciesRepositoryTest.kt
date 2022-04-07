@@ -2,7 +2,7 @@ package com.aliumujib.cryptoapp.currencydatalib.data
 
 import app.cash.turbine.test
 import com.aliumujib.cryptoapp.coremodels.Currency
-import com.aliumujib.cryptoapp.currencydatalib.DummyData
+import com.aliumujib.cryptoapp.sharedtestutils.CurrencyDummyData
 import com.aliumujib.cryptoapp.currencydatalib.FakeCurrenciesSource
 import com.aliumujib.cryptoapp.currencydatalib.FakeCurrenciesStore
 import com.aliumujib.cryptoapp.currencydatalib.cache.impl.CurrencyStore
@@ -23,7 +23,7 @@ class CurrenciesRepositoryTest : CoroutineTest() {
     private val store: CurrencyStore = FakeCurrenciesStore()
 
     private val datasource: DataSource<List<Currency>> by lazy {
-        FakeCurrenciesSource(DummyData.generateFakeCurrencyList())
+        FakeCurrenciesSource(CurrencyDummyData.generateFakeCurrencyList())
     }
 
     @Before
@@ -33,7 +33,7 @@ class CurrenciesRepositoryTest : CoroutineTest() {
 
     @Test
     fun assert_that_streamCurrencies_emits_data_when_data_exists() = coroutineScopedTest {
-        store.save(DummyData.generateFakeCurrencyList())
+        store.save(CurrencyDummyData.generateFakeCurrencyList())
         val expected = store.stream().first()
 
         sut.streamCurrencies().test {

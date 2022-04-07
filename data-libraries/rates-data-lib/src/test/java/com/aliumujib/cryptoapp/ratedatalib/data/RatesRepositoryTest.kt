@@ -1,7 +1,7 @@
 package com.aliumujib.cryptoapp.ratedatalib.data
 
 import com.aliumujib.cryptoapp.coremodels.ExchangeRate
-import com.aliumujib.cryptoapp.ratedatalib.DummyData
+import com.aliumujib.cryptoapp.sharedtestutils.RatesDummyData
 import com.aliumujib.cryptoapp.ratedatalib.FakeRatesSource
 import com.aliumujib.cryptoapp.ratedatalib.FakeRatesStore
 import com.aliumujib.cryptoapp.ratedatalib.cache.impl.RatesStore
@@ -21,7 +21,7 @@ class RatesRepositoryTest : CoroutineTest() {
     private val store: RatesStore = FakeRatesStore()
 
     private val datasource: DataSource<List<ExchangeRate>> by lazy {
-        FakeRatesSource(DummyData.generateFakeExchangeList())
+        FakeRatesSource(RatesDummyData.generateFakeExchangeList())
     }
 
     @Before
@@ -31,7 +31,7 @@ class RatesRepositoryTest : CoroutineTest() {
 
     @Test
     fun assert_that_fetchRateForPair_returns_data_when_data_exists() = coroutineScopedTest {
-        store.save(DummyData.generateFakeExchangeList())
+        store.save(RatesDummyData.generateFakeExchangeList())
         val expected = store.fetchRateForPair("BUSD", "USD")
 
         val actual = sut.fetchRateForPair("BUSD", "USD")

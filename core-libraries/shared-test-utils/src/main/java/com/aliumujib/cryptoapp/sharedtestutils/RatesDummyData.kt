@@ -1,13 +1,13 @@
-package com.aliumujib.cryptoapp.dashboard.domain
+package com.aliumujib.cryptoapp.sharedtestutils
 
 import com.aliumujib.cryptoapp.coremodels.ExchangeRate
 import com.aliumujib.cryptoapp.coremodels.Rate
 import konveyor.base.randomBuild
 import kotlin.random.Random
 
-object DummyData {
+object RatesDummyData {
 
-    private fun generateExchangeRate(from: String, to: String, rate: Double): ExchangeRate {
+    fun generateExchangeRate(from: String, to: String, rate: Double = 1.0): ExchangeRate {
         return ExchangeRate(
             from,
             rates = listOf(
@@ -26,4 +26,6 @@ object DummyData {
             generateExchangeRate(it.first, it.second, it.third)
         }
     }
+
+
 }

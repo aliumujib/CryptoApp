@@ -4,7 +4,7 @@ import app.cash.turbine.test
 import com.aliumujib.cryptoapp.coremodels.Wallet
 import com.aliumujib.cryptoapp.remote.datasource.DataSource
 import com.aliumujib.cryptoapp.sharedtestutils.CoroutineTest
-import com.aliumujib.cryptoapp.walletdata.DummyData
+import com.aliumujib.cryptoapp.sharedtestutils.WalletsDummyData
 import com.aliumujib.cryptoapp.walletdata.FakeWalletSource
 import com.aliumujib.cryptoapp.walletdata.FakeWalletStore
 import com.aliumujib.cryptoapp.walletdata.cache.impl.WalletStore
@@ -22,7 +22,7 @@ class WalletsRepositoryTest : CoroutineTest() {
     private val store: WalletStore = FakeWalletStore()
 
     private val wallets: List<Wallet> by lazy {
-        DummyData.generateFakeWalletList()
+        WalletsDummyData.generateFakeWalletList()
     }
 
     private val datasource: DataSource<List<Wallet>> by lazy {

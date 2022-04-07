@@ -3,6 +3,7 @@ package com.aliumujib.cryptoapp.dashboard.domain
 import com.aliumujib.cryptoapp.coredomain.utils.PostExecutionThread
 import com.aliumujib.cryptoapp.coremodels.ExchangeRate
 import com.aliumujib.cryptoapp.sharedtestutils.CoroutineTest
+import com.aliumujib.cryptoapp.sharedtestutils.RatesDummyData
 import com.aliumujib.cryptoapp.sharedtestutils.TestPostExecutionThread
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -14,7 +15,7 @@ class FetchExchangeRatesTest : CoroutineTest() {
 
     private lateinit var sut: FetchExchangeRates
 
-    private val rates: List<ExchangeRate> = DummyData.generateFakeExchangeRateList(
+    private val rates: List<ExchangeRate> = RatesDummyData.generateFakeExchangeRateList(
         listOf(
             Triple("BTC", "USD", 64000.0),
             Triple("USDT", "USD", 1.1),

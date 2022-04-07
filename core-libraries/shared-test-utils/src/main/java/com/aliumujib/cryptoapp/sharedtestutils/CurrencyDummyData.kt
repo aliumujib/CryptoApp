@@ -1,13 +1,12 @@
-package com.aliumujib.cryptoapp.walletdata
+package com.aliumujib.cryptoapp.sharedtestutils
 
 import com.aliumujib.cryptoapp.coremodels.Currency
-import com.aliumujib.cryptoapp.coremodels.Wallet
 import konveyor.base.randomBuild
 import kotlin.random.Random
 
-object DummyData {
+object CurrencyDummyData {
 
-    private fun generateFakeCurrency(coinId: String): Currency {
+    fun generateFakeCurrency(coinId: String): Currency {
         return Currency(
             coinId,
             coinId,
@@ -34,16 +33,12 @@ object DummyData {
         )
     }
 
-    private fun generateFakeWallet(coinId: String): Wallet {
-        return Wallet(coinId, generateFakeCurrency(coinId), Random.nextDouble())
-    }
-
-    fun generateFakeWalletList(): List<Wallet> {
+    fun generateFakeCurrencyList(): List<Currency> {
         return listOf(
-            generateFakeWallet("BTC"),
-            generateFakeWallet("BUSD"),
-            generateFakeWallet("USDT"),
-            generateFakeWallet("BNB")
+            generateFakeCurrency("BTC"),
+            generateFakeCurrency("BUSD"),
+            generateFakeCurrency("USDT"),
+            generateFakeCurrency("BNB")
         )
     }
 }
