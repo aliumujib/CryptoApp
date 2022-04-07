@@ -1,11 +1,8 @@
-package com.aliumujib.cryptoapp.dashboard.presentation
+package com.aliumujib.cryptoapp.dashboard.domain
 
 import app.cash.turbine.test
+import com.aliumujib.cryptoapp.coremodels.WalletsWithExchangeRates
 import com.aliumujib.cryptoapp.currencydatalib.domain.CurrenciesRepository
-import com.aliumujib.cryptoapp.dashboard.domain.FetchExchangeRates
-import com.aliumujib.cryptoapp.dashboard.domain.StreamBaseFiat
-import com.aliumujib.cryptoapp.dashboard.domain.StreamWallets
-import com.aliumujib.cryptoapp.dashboard.domain.StreamWalletsAndExchangeRates
 import com.aliumujib.cryptoapp.ratedatalib.domain.RatesRepository
 import com.aliumujib.cryptoapp.sharedtestutils.CoroutineTest
 import com.aliumujib.cryptoapp.sharedtestutils.RatesDummyData
@@ -23,7 +20,7 @@ import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class WalletScreenIntentProcessorTest : CoroutineTest() {
+class StreamWalletsAndExchangeRatesTest : CoroutineTest() {
 
     @MockK
     private lateinit var walletsRepository: WalletsRepository
@@ -34,6 +31,10 @@ class WalletScreenIntentProcessorTest : CoroutineTest() {
     @MockK
     private lateinit var ratesRepository: RatesRepository
 
+    private val fakeWalletList = WalletsDummyData.generateFakeWalletList()
+    private val fakeCurrencyList = WalletsDummyData.generateFakeCurrencyList(listOf("BUSD", "BNB"))
+    private val fakeExchangeRate = RatesDummyData.generateExchangeRate("BUSD", "USD", 1.0)
+
     private val postExecutionThread by lazy {
         TestPostExecutionThread()
     }
@@ -41,9 +42,7 @@ class WalletScreenIntentProcessorTest : CoroutineTest() {
     private lateinit var streamWallets: StreamWallets
     private lateinit var fetchExchangeRates: FetchExchangeRates
     private lateinit var streamBaseFiat: StreamBaseFiat
-    private lateinit var streamWalletsAndExchangeRates: StreamWalletsAndExchangeRates
-
-    private lateinit var sut: WalletScreenIntentProcessor
+    private lateinit var sut: StreamWalletsAndExchangeRates
 
     @Before
     fun setUp() {
@@ -52,19 +51,18 @@ class WalletScreenIntentProcessorTest : CoroutineTest() {
         streamWallets = StreamWallets(walletsRepository, currenciesRepository, postExecutionThread)
         fetchExchangeRates = FetchExchangeRates(ratesRepository, postExecutionThread)
         streamBaseFiat = StreamBaseFiat(currenciesRepository, postExecutionThread)
-        streamWalletsAndExchangeRates = StreamWalletsAndExchangeRates(
+        sut = StreamWalletsAndExchangeRates(
             streamWallets,
             fetchExchangeRates,
             streamBaseFiat,
             postExecutionThread
         )
-        sut = WalletScreenIntentProcessor(streamWalletsAndExchangeRates)
     }
 
     private fun stubSuccessfulCurrencyRepositoryResponse() {
         coEvery {
             currenciesRepository.streamCurrencies()
-        } returns flowOf(WalletsDummyData.generateFakeCurrencyList(listOf("BUSD", "BNB")))
+        } returns flowOf(fakeCurrencyList)
 
         coEvery {
             currenciesRepository.streamBaseFiatCurrencyCode()
@@ -74,13 +72,13 @@ class WalletScreenIntentProcessorTest : CoroutineTest() {
     private fun stubSuccessfulWalletsRepositoryResponse() {
         coEvery {
             walletsRepository.streamWallets()
-        } returns flowOf(WalletsDummyData.generateFakeWalletList())
+        } returns flowOf(fakeWalletList)
     }
 
     private fun stubSuccessfulRatesRepositoryResponse() {
         coEvery {
             ratesRepository.fetchRateForPair(any(), any())
-        } returns RatesDummyData.generateExchangeRate("BUSD", "USD", 1.0)
+        } returns fakeExchangeRate
     }
 
     private fun stubFailedWalletsRepositoryResponse() {
@@ -92,30 +90,38 @@ class WalletScreenIntentProcessorTest : CoroutineTest() {
     }
 
     @Test
-    fun assert_that_FetchWalletsIntent_returns_LoadedWalletsResult_when_there_is_no_error() =
+    fun assert_StreamWalletsAndExchangeRates_returns_data_when_there_is_no_error() =
         coroutineScopedTest {
+            //GIVEN
             stubSuccessfulRatesRepositoryResponse()
             stubSuccessfulWalletsRepositoryResponse()
             stubSuccessfulCurrencyRepositoryResponse()
+            val expected = WalletsWithExchangeRates(
+                wallets = fakeWalletList,
+                exchangeRates = mapOf("BUSD" to 1.0, "BTC" to 1.0, "USDT" to 1.0, "BNB" to 1.0),
+                "USD"
+            )
 
-            sut.intentToResult(FetchWalletsIntent).test {
-                assertThat(awaitItem()).isEqualTo(WalletScreenResult.LoadWalletsResult.Loading)
-                assertThat(awaitItem()).isInstanceOf(WalletScreenResult.LoadWalletsResult.LoadedWalletsResult::class.java)
+            //THEN
+            sut.build().test {
+                assertThat(awaitItem()).isEqualTo(expected)
                 cancelAndIgnoreRemainingEvents()
             }
         }
 
     @Test
-    fun assert_that_FetchWalletsIntent_returns_LoadingError_when_there_is_an_error() =
+    fun assert_StreamWalletsAndExchangeRates_returns_error_when_there_is_an_error() =
         coroutineScopedTest {
+            //GIVEN
             stubSuccessfulRatesRepositoryResponse()
             stubFailedWalletsRepositoryResponse()
             stubSuccessfulCurrencyRepositoryResponse()
 
-            sut.intentToResult(FetchWalletsIntent).test {
-                assertThat(awaitItem()).isEqualTo(WalletScreenResult.LoadWalletsResult.Loading)
-                assertThat(awaitItem()).isInstanceOf(WalletScreenResult.LoadWalletsResult.LoadingError::class.java)
+            //THEN
+            sut.build().test {
+                assertThat(awaitError()).isInstanceOf(IllegalAccessException::class.java)
                 cancelAndIgnoreRemainingEvents()
             }
         }
+
 }

@@ -6,4 +6,3 @@ interface RatesRepository {
 
     suspend fun fetchRateForPair(from: String, to: String): ExchangeRate?
 }
-

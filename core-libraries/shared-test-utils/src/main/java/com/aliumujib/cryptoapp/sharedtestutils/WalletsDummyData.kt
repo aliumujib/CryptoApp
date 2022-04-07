@@ -52,5 +52,4 @@ object WalletsDummyData {
             generateFakeWallet("BNB", amount)
         )
     }
-
 }

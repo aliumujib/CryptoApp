@@ -1,6 +1,5 @@
 package com.aliumujib.cryptoapp.dashboard.mapper
 
-
 import com.aliumujib.cryptoapp.coremodels.WalletsWithExchangeRates
 import com.aliumujib.cryptoapp.sharedtestutils.WalletsDummyData
 import com.google.common.truth.Truth.assertThat
@@ -36,5 +35,4 @@ class WalletModelMapperTest {
     fun mapToDomain() {
         walletModelMapper.mapToDomain(randomBuild())
     }
-
 }

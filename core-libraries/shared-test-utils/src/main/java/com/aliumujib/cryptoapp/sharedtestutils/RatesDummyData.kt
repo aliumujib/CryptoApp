@@ -26,6 +26,4 @@ object RatesDummyData {
             generateExchangeRate(it.first, it.second, it.third)
         }
     }
-
-
 }

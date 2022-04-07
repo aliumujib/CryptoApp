@@ -11,7 +11,6 @@ apply from: 'install-githook.gradle'
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.aliumujib.cryptoapp"

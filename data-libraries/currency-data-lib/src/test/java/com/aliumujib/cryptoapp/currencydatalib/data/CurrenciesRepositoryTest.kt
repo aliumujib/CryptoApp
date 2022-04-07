@@ -2,13 +2,13 @@ package com.aliumujib.cryptoapp.currencydatalib.data
 
 import app.cash.turbine.test
 import com.aliumujib.cryptoapp.coremodels.Currency
-import com.aliumujib.cryptoapp.sharedtestutils.CurrencyDummyData
 import com.aliumujib.cryptoapp.currencydatalib.FakeCurrenciesSource
 import com.aliumujib.cryptoapp.currencydatalib.FakeCurrenciesStore
 import com.aliumujib.cryptoapp.currencydatalib.cache.impl.CurrencyStore
 import com.aliumujib.cryptoapp.currencydatalib.domain.CurrenciesRepository
 import com.aliumujib.cryptoapp.remote.datasource.DataSource
 import com.aliumujib.cryptoapp.sharedtestutils.CoroutineTest
+import com.aliumujib.cryptoapp.sharedtestutils.CurrencyDummyData
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
