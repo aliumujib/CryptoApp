@@ -92,7 +92,7 @@ class StreamWalletsAndExchangeRatesTest : CoroutineTest() {
     @Test
     fun assert_StreamWalletsAndExchangeRates_returns_data_when_there_is_no_error() =
         coroutineScopedTest {
-            //GIVEN
+            // GIVEN
             stubSuccessfulRatesRepositoryResponse()
             stubSuccessfulWalletsRepositoryResponse()
             stubSuccessfulCurrencyRepositoryResponse()
@@ -102,7 +102,7 @@ class StreamWalletsAndExchangeRatesTest : CoroutineTest() {
                 "USD"
             )
 
-            //THEN
+            // THEN
             sut.build().test {
                 assertThat(awaitItem()).isEqualTo(expected)
                 cancelAndIgnoreRemainingEvents()
@@ -112,16 +112,15 @@ class StreamWalletsAndExchangeRatesTest : CoroutineTest() {
     @Test
     fun assert_StreamWalletsAndExchangeRates_returns_error_when_there_is_an_error() =
         coroutineScopedTest {
-            //GIVEN
+            // GIVEN
             stubSuccessfulRatesRepositoryResponse()
             stubFailedWalletsRepositoryResponse()
             stubSuccessfulCurrencyRepositoryResponse()
 
-            //THEN
+            // THEN
             sut.build().test {
                 assertThat(awaitError()).isInstanceOf(IllegalAccessException::class.java)
                 cancelAndIgnoreRemainingEvents()
             }
         }
-
 }
