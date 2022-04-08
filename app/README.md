@@ -72,3 +72,5 @@ based on ideas borrowed from the following resources:
 - [Netflix Tech Blog](https://netflixtechblog.com/making-our-android-studio-apps-reactive-with-ui-components-redux-5e37aac3b244)
 - [julianomoraes/componentizationArch](https://github.com/julianomoraes/componentizationArch)
 - [NETFLIX'S REACTIVE ANDROID COMPONENTS - THE REDUX REVENGE.](https://www.droidcon.com/2019/08/07/netflixs-reactive-android-components-the-redux-revenge/?video=362740979)
+- [Ezike/StarWarsSearch-MVI](https://github.com/Ezike/StarWarsSearch-MVI)
+- [aliumujib/Artic](https://github.com/aliumujib/Artic)
