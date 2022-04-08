@@ -28,9 +28,9 @@ inversion, where higher and lower level layers all depend on abstractions.
 #### Data
 
 The app merges data from 3 data sources all simulated via JSON files:
-- A [currencies]() endpoint
-- A [wallets]() endpoint
-- A [live exchange rates]() endpoint
+- A [currencies](https://github.com/aliumujib/CryptoApp/blob/master/data-libraries/currency-data-lib/src/main/assets/currencies-json.md) endpoint
+- A [wallets](https://github.com/aliumujib/CryptoApp/blob/master/data-libraries/wallet-data-lib/src/main/assets/wallet-balance-json.md) endpoint
+- A [live exchange rates](https://github.com/aliumujib/CryptoApp/blob/master/data-libraries/rates-data-lib/src/main/assets/live-rates-json.md) endpoint
 
 I made a data module for each entity (currency-data-lib, rates-data-lib, wallet-data-lib) and each
 module contained logic for fetching, caching and manipulating data into a usable state.
