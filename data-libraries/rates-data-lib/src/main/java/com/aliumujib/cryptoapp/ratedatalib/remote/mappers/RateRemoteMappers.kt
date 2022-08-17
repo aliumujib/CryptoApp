@@ -12,12 +12,12 @@ class RateRemoteMappers @Inject constructor() :
     override fun mapToModel(response: ExchangeRateResponse): ExchangeRate {
         return with(response) {
             ExchangeRate(
-                from_currency,
+                fromCurrency,
                 rates.map {
                     Rate(it.amount.toDouble(), it.rate.toDouble())
                 },
-                time_stamp,
-                to_currency
+                timeStamp,
+                toCurrency
             )
         }
     }

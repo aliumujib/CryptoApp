@@ -1,5 +1,6 @@
 package com.aliumujib.cryptoapp.ratedatalib.remote.model
 
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
@@ -11,10 +12,13 @@ data class LiveRatesResponse(
 
 @JsonClass(generateAdapter = true)
 data class ExchangeRateResponse(
-    val from_currency: String,
+    @Json(name = "from_currency")
+    val fromCurrency: String,
     val rates: List<RateResponse>,
-    val time_stamp: Long,
-    val to_currency: String
+    @Json(name = "time_stamp")
+    val timeStamp: Long,
+    @Json(name = "to_currency")
+    val toCurrency: String
 )
 
 @JsonClass(generateAdapter = true)
