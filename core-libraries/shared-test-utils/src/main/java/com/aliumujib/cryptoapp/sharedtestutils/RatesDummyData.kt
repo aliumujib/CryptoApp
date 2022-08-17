@@ -1,6 +1,7 @@
 package com.aliumujib.cryptoapp.sharedtestutils
 
 import com.aliumujib.cryptoapp.coremodels.ExchangeRate
+import com.aliumujib.cryptoapp.coremodels.ExchangeRates
 import com.aliumujib.cryptoapp.coremodels.Rate
 import konveyor.base.randomBuild
 import kotlin.random.Random
@@ -25,5 +26,9 @@ object RatesDummyData {
         return pairList.map {
             generateExchangeRate(it.first, it.second, it.third)
         }
+    }
+
+    fun generateDummyExchangeRates() : ExchangeRates {
+        return mapOf("BUSD" to 1.0, "BTC" to 1.0, "USDT" to 1.0, "BNB" to 1.0)
     }
 }

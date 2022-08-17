@@ -21,11 +21,11 @@ class StreamWalletsAndExchangeRates @Inject constructor(
         return combine(streamWallets.build(), streamBaseFiat.build()) { wallets, baseFiatCurrency ->
             return@combine Pair(wallets, baseFiatCurrency)
         }.map { data ->
-            calculateResults(data)
+            calculateExchangeRateForWallets(data)
         }
     }
 
-    private suspend fun calculateResults(
+    private suspend fun calculateExchangeRateForWallets(
         data: Pair<List<Wallet>, BaseFiatCurrency>
     ): WalletsWithExchangeRates {
         val wallets = data.first
@@ -33,9 +33,6 @@ class StreamWalletsAndExchangeRates @Inject constructor(
         val fiatCurrencyCode = data.second
         val exchangeRates =
             fetchExchangeRates(FetchExchangeRates.Params.make(walletCoinIds, fiatCurrencyCode)).orEmpty()
-        return WalletsWithExchangeRates(
-            data.first,
-            exchangeRates,
-            fiatCurrencyCode)
+        return WalletsWithExchangeRates(data.first, exchangeRates, fiatCurrencyCode)
     }
 }
